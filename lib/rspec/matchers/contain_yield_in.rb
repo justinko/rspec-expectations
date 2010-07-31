@@ -15,7 +15,7 @@ module RSpec
       Matcher.new :contain_yield_in, method do |_method_|
         match do |method_caller|
           yielded = []
-          method_caller.send(_method_) do
+          method_caller.__send__(_method_) do
             yielded << true
           end
           yielded.should eql([true])
