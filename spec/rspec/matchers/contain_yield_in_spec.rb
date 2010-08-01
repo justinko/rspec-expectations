@@ -12,13 +12,11 @@ module RSpec
           end
         end
         
-        it 'passes' do
-          subject.should contain_yield_in(:new)
-        end
+        it('passes') { should contain_yield_in(:new) }
         
         it 'provides a failure message for should_not' do
           lambda {
-            subject.should_not contain_yield_in(:new) 
+            should_not contain_yield_in(:new) 
           }.should fail_with(/expected #<Class.*>.new to not yield/)
         end
       end
@@ -31,13 +29,11 @@ module RSpec
           end
         end
         
-        it 'fails' do
-          subject.should_not contain_yield_in(:new)
-        end
+        it('fails') { should_not contain_yield_in(:new) }
         
         it 'provides a failure message for should' do
           lambda {
-            subject.should contain_yield_in(:new) 
+            should contain_yield_in(:new) 
           }.should fail_with(/expected #<Class.*>.new to yield/)
         end
       end
