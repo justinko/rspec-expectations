@@ -22,10 +22,8 @@ Feature: equality matchers
     a.should eq(b) # passes if a == b
 
   Scenario: compare using eq (==)
-    Given a file named "compare_using_eq.rb" with:
+    Given a file named "compare_using_eq_spec.rb" with:
       """
-      require 'spec_helper'
-
       describe "a string" do
         it "is equal to another string of the same value" do
           "this string".should eq("this string")
@@ -42,14 +40,12 @@ Feature: equality matchers
         end
       end
       """
-    When I run "rspec compare_using_eq.rb"
+    When I run "rspec compare_using_eq_spec.rb"
     Then the output should contain "3 examples, 0 failures"
 
   Scenario: compare using ==
-    Given a file named "compare_using_==.rb" with:
+    Given a file named "compare_using_==_spec.rb" with:
       """
-      require 'spec_helper'
-
       describe "a string" do
         it "is equal to another string of the same value" do
           "this string".should == "this string"
@@ -66,14 +62,12 @@ Feature: equality matchers
         end
       end
       """
-    When I run "rspec compare_using_==.rb"
+    When I run "rspec compare_using_==_spec.rb"
     Then the output should contain "3 examples, 0 failures"
 
   Scenario: compare using eql (eql?)
-    Given a file named "compare_using_eql.rb" with:
+    Given a file named "compare_using_eql_spec.rb" with:
       """
-      require 'spec_helper'
-
       describe "an integer" do
         it "is equal to another integer of the same value" do
           5.should eql(5)
@@ -89,14 +83,12 @@ Feature: equality matchers
 
       end
       """
-    When I run "rspec compare_using_eql.rb"
+    When I run "rspec compare_using_eql_spec.rb"
     Then the output should contain "3 examples, 0 failures"
 
   Scenario: compare using equal (equal?)
-    Given a file named "compare_using_equal.rb" with:
+    Given a file named "compare_using_equal_spec.rb" with:
       """
-      require 'spec_helper'
-
       describe "a string" do
         it "is equal to itself" do
           string = "this string"
@@ -113,14 +105,12 @@ Feature: equality matchers
 
       end
       """
-    When I run "rspec compare_using_equal.rb"
+    When I run "rspec compare_using_equal_spec.rb"
     Then the output should contain "3 examples, 0 failures"
 
   Scenario: compare using be (equal?)
-    Given a file named "compare_using_be.rb" with:
+    Given a file named "compare_using_be_spec.rb" with:
       """
-      require 'spec_helper'
-
       describe "a string" do
         it "is equal to itself" do
           string = "this string"
@@ -137,6 +127,6 @@ Feature: equality matchers
 
       end
       """
-    When I run "rspec compare_using_be.rb"
+    When I run "rspec compare_using_be_spec.rb"
     Then the output should contain "3 examples, 0 failures"
 
