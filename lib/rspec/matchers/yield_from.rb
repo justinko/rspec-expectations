@@ -3,6 +3,8 @@ module RSpec
     # :call-seq:
     #   should yield_from(method)
     #   should_not yield_from(method)
+    #   should yield_from(method).with(object)
+    #   should yield_from(method).with(object1, object2)
     #
     # Passes if method contains yield. You must call this
     # on an object that responds to the method that contains
@@ -11,6 +13,7 @@ module RSpec
     # == Example
     #
     #   class.should yield_from(:method_that_yields)
+    #   class.should yield_from(:method_that_yields).with(an_object)
     def yield_from(method)
       Matcher.new :yield_from, method do |_method_|
         
