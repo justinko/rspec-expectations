@@ -32,8 +32,8 @@ module RSpec
           unless yielded?
             "expected #{method_caller}.#{_method_} to yield"
           else
-            "expected #{method_caller}.#{_method_} to yield #{objects_yielded.join(', ').inspect} " \
-            "not #{objects_that_should_yield.join(', ').inspect}"
+            "expected #{method_caller}.#{_method_} to yield #{objects_that_should_yield.join(', ').inspect} " \
+            "not #{objects_yielded.join(', ').inspect}"
           end
         end
         
@@ -65,7 +65,7 @@ module RSpec
         
         def call_yieldable_method
           silence_warnings do
-            @method_caller.__send__(@method) {|objects| yield(objects) }
+            @method_caller.__send__(@method) {|*objects| yield(objects) }
           end
         end
         

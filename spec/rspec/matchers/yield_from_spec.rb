@@ -65,7 +65,7 @@ module RSpec
         it 'provides a failure message for should' do
           expect {
             should yield_from(:new).with('foo')
-          }.to fail_with(/expected #<Class.*>.new to yield "yielded object 1, yielded object 2" not "foo"/)
+          }.to fail_with(/expected #<Class.*>.new to yield "foo" not "yielded object 1, yielded object 2"/)
         end
         
         it 'provides a failure message for should_not' do
